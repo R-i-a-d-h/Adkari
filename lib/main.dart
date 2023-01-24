@@ -1,15 +1,17 @@
-import 'package:adkari/starting_page.dart';
+import 'package:adkari/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter/services.dart';
+
+import 'home_page.dart';
 
 void main() {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  runApp(const MaterialApp(
-    debugShowCheckedModeBanner: false,
-    title: 'Adkari',
-    home: StartingPage(),
-  ),);
-  FlutterNativeSplash.remove();
+  SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: kPrimaryColor));
+  runApp(
+    const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Adkari',
+      home: HomePage(),
+    ),
+  );
 }
-
