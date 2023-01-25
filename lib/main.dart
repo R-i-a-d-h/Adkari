@@ -1,4 +1,5 @@
 import 'package:adkari/constants.dart';
+import 'package:adkari/praise_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -11,7 +12,7 @@ void main() {
     const MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Adkari',
-      home: HomePage(),
+      home: PraisePage(),
     ),
   );
 }

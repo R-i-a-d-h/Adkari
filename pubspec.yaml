@@ -29,5 +29,8 @@ flutter:
          - asset: fonts/Abd-Regular.otf
          - asset: fonts/Abd-Bold.otf
            weight: 700
+     - family: Digital
+       fonts:
+         - asset: fonts/Digital.ttf
 
 
