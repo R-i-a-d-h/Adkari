@@ -1,3 +1,4 @@
+import 'package:adkari/praise_page.dart';
 import 'package:flutter/material.dart';
 
 import 'card_view.dart';
@@ -99,14 +100,14 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      CardView(
-                        image: AssetImage('images/sun.png'),
-                        onPress: () => {},
-                        label: 'اذكار الصباح',
+                      GestureDetector(
+                        child: CardView(
+                          image: AssetImage('images/sun.png'),
+                          label: 'اذكار الصباح',
+                        ),
                       ),
                       CardView(
                         image: AssetImage('images/carpet.png'),
-                        onPress: () => {},
                         label: 'اذكار الصلاة',
                       ),
                     ],
@@ -119,13 +120,22 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       CardView(
                         image: AssetImage('images/crescent.png'),
-                        onPress: () => {},
                         label: 'اذكار المساء',
                       ),
-                      CardView(
-                        image: AssetImage('images/rosary.png'),
-                        onPress: () => {},
-                        label: 'التسبيح',
+                      GestureDetector(
+                        onTap:(){
+                          setState(() {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => PraisePage()),
+                            );
+                          });
+                        } ,
+                        child: CardView(
+                          image: AssetImage('images/rosary.png'),
+
+                          label: 'التسبيح',
+                        ),
                       ),
                     ],
                   ),

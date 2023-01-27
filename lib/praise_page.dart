@@ -1,4 +1,5 @@
 import 'package:adkari/constants.dart';
+import 'package:adkari/counter.dart';
 import 'package:flutter/material.dart';
 
 class PraisePage extends StatefulWidget {
@@ -9,6 +10,7 @@ class PraisePage extends StatefulWidget {
 }
 
 class _PraisePageState extends State<PraisePage> {
+  Counter counter = Counter(counter: 0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,7 +24,7 @@ class _PraisePageState extends State<PraisePage> {
               height: 196,
               child: Center(
                   child: Text(
-                '000',
+                counter.getCounter().toString(),
                 style: TextStyle(
                   fontFamily: 'Digital',
                   fontSize: 48,
@@ -45,31 +47,39 @@ class _PraisePageState extends State<PraisePage> {
             SizedBox(
               height: 64,
             ),
-            Container(
-              margin: EdgeInsets.only(left: 32.0, right: 32.0),
-              width: double.infinity,
-              height: 96,
-              child: Center(
-                  child: Text(
-                'سبحان الله والحمد لله ولا إله إلا الله والله أكبر',
-                style: TextStyle(
-                  fontFamily: 'Raleway',
-                  fontSize: 20,
-                  color: Colors.white,
-                ),
-                textAlign: TextAlign.center,
-              )),
-              decoration: BoxDecoration(
-                  color: kSecondaryColor,
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 5,
-                      blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ]),
+            GestureDetector(
+              onTap: () => setState(() {
+                counter.increment();
+              }),
+              onLongPress: () => setState(() {
+                counter.resetCounter();
+              }),
+              child: Container(
+                margin: EdgeInsets.only(left: 32.0, right: 32.0),
+                width: double.infinity,
+                height: 96,
+                child: Center(
+                    child: Text(
+                  'سبحان الله والحمد لله ولا إله إلا الله والله أكبر',
+                  style: TextStyle(
+                    fontFamily: 'Raleway',
+                    fontSize: 20,
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                )),
+                decoration: BoxDecoration(
+                    color: kSecondaryColor,
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                    ]),
+              ),
             ),
           ],
         ),
